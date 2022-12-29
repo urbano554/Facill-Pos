@@ -9,7 +9,6 @@ import Wrapper from '../components/Wrapper';
 import { useGetAllElementsQuery } from '../services/customerServices';
 
 export const ListOfCustomers: React.FC = () => {
-
   const [open, setOpen] = useState(false);
 
   const { data: allCustomers = [], isLoading } = useGetAllElementsQuery(null);

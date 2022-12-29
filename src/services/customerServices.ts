@@ -48,7 +48,7 @@ export const customersApi = api.injectEndpoints({
 
 export const {
   useGetAllElementsQuery,
-  useGetCustomerByIdQuery,
+  useLazyGetCustomerByIdQuery,
   useCreateCustomerMutation,
   useUpdateCustomerMutation,
   useDeleteCustomerMutation,

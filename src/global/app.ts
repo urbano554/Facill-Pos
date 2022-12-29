@@ -7,7 +7,7 @@ interface initialStateInterface {
 
 const initialState: initialStateInterface = {
   //@ts-ignore
-  id: JSON.parse(localStorage.getItem('currentCustomerId')) || '1',
+  id: JSON.parse(localStorage.getItem('currentCustomerId'))
 };
 
 export const customerSlice = createSlice({

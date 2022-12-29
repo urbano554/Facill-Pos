@@ -1,9 +1,10 @@
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { useEffect } from 'react';
 
 import { ModalProps } from '../common/entities';
 import { useAppSelector } from '../global/hooks';
-import { useGetCustomerByIdQuery } from '../services/customerServices';
+import { useLazyGetCustomerByIdQuery } from '../services/customerServices';
 import Loading from './Loading';
 
 const style = {
@@ -20,7 +21,14 @@ const style = {
 const BasicModal: React.FC<ModalProps> = ({ open, handleClose }) => {
   const globalId = useAppSelector((state) => state.app.id);
 
-  const { data: customerInfo, isLoading } = useGetCustomerByIdQuery(globalId);
+  const [getCustomer, { data: customerInfo, isLoading }] =
+    useLazyGetCustomerByIdQuery();
+
+    useEffect(() => {
+      if (globalId !== null) {
+        getCustomer(globalId);
+      }
+    }, [getCustomer, globalId]);
 
   return (
     <Modal

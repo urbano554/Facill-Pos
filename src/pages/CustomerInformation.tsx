@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@mui/material';
 
@@ -13,18 +13,16 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
-  useGetCustomerByIdQuery,
+  useLazyGetCustomerByIdQuery,
   useUpdateCustomerMutation,
 } from '../services/customerServices';
 
 export const CustomerInformation = () => {
   const globalId = useAppSelector((state) => state.app.id);
   const [isEdit, setIsEdit] = useState(false);
-  const {
-    data: customerInfo,
-    isLoading,
-    isError,
-  } = useGetCustomerByIdQuery(globalId);
+  const [getCustomer, { data: customerInfo, isLoading, isError }] =
+    useLazyGetCustomerByIdQuery();
+
   const [
     updateCustomer,
     {
@@ -33,6 +31,12 @@ export const CustomerInformation = () => {
       isError: updateCustomerError,
     },
   ] = useUpdateCustomerMutation();
+
+  useEffect(() => {
+    if (globalId !== null) {
+      getCustomer(globalId);
+    }
+  }, [getCustomer, globalId]);
 
   return (
     <Wrapper>
