@@ -9,10 +9,12 @@ export const tagNames = {
   deleteCustomer: 'deleteCustomer',
 };
 
+const REACT_APP_API_URL = 'https://customers-api-v1.fly.dev/api/v1/';
+
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: REACT_APP_API_URL,
   }),
   endpoints: () => ({}),
   tagTypes: [...Object.values(tagNames)],
