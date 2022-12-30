@@ -16,6 +16,7 @@ import {
   useLazyGetCustomerByIdQuery,
   useUpdateCustomerMutation,
 } from '../services/customerServices';
+import { routes } from '../common/routes';
 
 export const CustomerInformation = () => {
   const globalId = useAppSelector((state) => state.app.id);
@@ -32,11 +33,13 @@ export const CustomerInformation = () => {
     },
   ] = useUpdateCustomerMutation();
 
+  const CURRENT_PATHNAME = window.location.pathname;
+
   useEffect(() => {
-    if (globalId !== null) {
+    if (globalId !== null && CURRENT_PATHNAME === routes.customerInfo) {
       getCustomer(globalId);
     }
-  }, [getCustomer, globalId]);
+  }, [getCustomer, globalId, CURRENT_PATHNAME]);
 
   return (
     <Wrapper>
