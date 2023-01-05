@@ -29,7 +29,7 @@ export const ListOfCustomers: React.FC = () => {
         handleClose={handleClose}
         handleOpen={handleOpen}
       />
-      <h2>Lista </h2>
+      <h2>Lista de clientes</h2>
       {isLoading ? (
         <Loading />
       ) : (
