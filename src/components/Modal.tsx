@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { ModalProps } from '../common/entities';
 import { useAppSelector } from '../global/hooks';
