@@ -3,7 +3,7 @@ import Wrapper from '../components/Wrapper';
 const Home: React.FC = () => {
   return (
     <Wrapper>
-      <h1 className='text'>Bienvenido</h1>
+      <h1 className='text'>Bienvenido A Facill Pos</h1>
     </Wrapper>
   );
 };
