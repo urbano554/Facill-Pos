@@ -42,7 +42,7 @@ const BasicModal: React.FC<ModalProps> = ({ open, handleClose }) => {
           <Loading />
         ) : (
           <>
-            <h3>Detalles del cliente</h3>
+            <h3>Detalles</h3>
             <p>{customerInfo?.data?.name}</p>
             <p>{customerInfo?.data?.lastName}</p>
             <p>{customerInfo?.data?.address}</p>
