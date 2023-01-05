@@ -13,7 +13,7 @@ export const RegisterCustomers: React.FC = () => {
   return (
     <Wrapper>
       <ToastContainer />
-      <h2>Registra un cliente</h2>
+      <h2>Registra</h2>
       <Form
         sendData={createEvent}
         isError={isError}
